@@ -1,0 +1,39 @@
+#contact{
+
+    background-color: #474e5d;
+
+    height: 548px;
+    padding: 50px 400px 0 400px;
+
+
+}
+
+#contact #contact .contact-form {
+
+}
+
+
+#contact .contact-form .form-group {
+    margin: 0.75rem;
+}
+
+#contact .contact-form label {
+    display:block;
+    margin: 5px;
+}
+
+#contact .contact-form input,
+#contact .contact-form textarea {
+    width: 100%;
+    padding: 0.5rem;
+}
+
+.btn{
+    display: inline-block;
+    color: #fff;
+    background: #93cb52;
+    margin-left: 10px;
+    width: 150px !important;
+    border: none;
+    border-radius: 5px;
+}
