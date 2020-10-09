@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useRef, useState} from 'react';
 import './menu.css'
 import axios from 'axios'
 import logo from './image/images.png'
@@ -13,10 +13,16 @@ function Menu() {
         translate:'',
         loading:false,
         error:'',
-        dropdown:'en',
+        dropdown:'ar',
+        strength:'3'
     });
 
-    const {text,loading,translate,dropdown} = values;
+    const [copySuccess, setCopySuccess] = useState('');
+
+
+    const textAreaRef = useRef(null);
+
+    const {text,loading,translate,dropdown,strength} = values;
 
     const onSubmit=(event)=>{
         event.preventDefault();
@@ -31,7 +37,7 @@ function Menu() {
             },
             "data": {
                 "language":  `${dropdown}`,  //"en", //'ar'
-                "strength": 3,
+                "strength": strength,
                 "text": `${text}`
             }
         })
@@ -62,6 +68,22 @@ function Menu() {
         )
     }
 
+
+
+
+    const copyToClipboard = (e)=>{
+        textAreaRef.current.select();
+        document.execCommand('copy');
+
+        e.target.focus();
+        setCopySuccess('Copied!');
+    }
+
+    const handleClick = (strength)=>{
+
+        setValues({...values,strength: strength})
+    }
+
     const handleChange = name => event => {
         const value = event.target.value;
          setValues({ ...values,[name]: value});
@@ -79,30 +101,47 @@ function Menu() {
 
 
             <div className="content">
-                <h1>Automatically rewrite the full text</h1>
+                <h1>إعادة كتابة النص الكامل تلقائيًا
+                          إعادة كتابة النص في عربى</h1>
                 <div className="drop">
-                    <h3>Select the Language</h3>
+                    <h3>حدد اللغة</h3>
                     <select value={dropdown} onChange={handleChange("dropdown")}  className="custom-select mr-sm-2" >
-                        <option value="en">English</option>
-                        <option value="ar">Arab</option>
+                        <option value="ar">عربى</option>
+                        <option value="en">الإنجليزية</option>
+
                     </select>
 
                 </div>
                 <div className="boxes">
                     <div className="enterText">
                         <h3>
-                            Enter Your Text Here
+                            إدخال
                         </h3>
-                        <textarea onChange={handleChange("text")} value={text} id="w3review" name="w3review" rows="20" cols="55"/>
+                        <textarea
+                              dir={dropdown==='en'?'auto':'rtl'}
+                                  onChange={handleChange("text")} value={text} id="w3review" name="w3review" rows="20" cols="55"/>
                     </div>
                     <div className="translaterText">
                         <h3>
-                            Correct Sentence
+                            نتيجة
                         </h3>
-                        <textarea onChange={handleChange("translate")} value={translate} id="w3review" name="w3review" rows="20" cols="55"/>
+                        <textarea
+                            className="recorrect"
+                            readOnly
+                            ref={textAreaRef}
+                            dir={dropdown==='en'?'auto':'rtl'}
+                            onChange={handleChange("translate")} value={translate} id="w3review" name="w3review" rows="20" cols="55"/>
+                        <button className="copyTo" onClick={copyToClipboard}>نسخ</button>
                     </div>
                 </div>
-                {loading ? loadingMessage():<button type="submit" onClick={onSubmit} className="button button2">REWRITE</button> }
+                <div className="pagination">
+                    <text className="div">قوة:
+                    </text>
+                    <button onClick={()=>handleClick('1')} className="btnn">1</button>
+                    <button  onClick={()=>handleClick('2')} className="btnn">2</button>
+                    <button   onClick={()=>handleClick('3')} className="btnn">3(موصىبه)</button>
+                </div>
+                {loading ? loadingMessage():<button type="submit" onClick={onSubmit} className="button button2">اعادة كتابة</button> }
 
             </div>
 
@@ -112,7 +151,7 @@ function Menu() {
 
             <div className="more">
                 <h1>
-                    Why is it free?
+                    لماذا هو مجاني؟
                 </h1>
                 <text>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -124,45 +163,11 @@ function Menu() {
 
             <div className="more-2">
                 <h1>
-                    What can I use this for?
+                    لماذا يمكنني استخدام هذا؟
                 </h1>
-                <table>
-                    <tr>
-                        <th>Company</th>
-                        <th>Contact</th>
-                        <th>Country</th>
-                    </tr>
-                    <tr>
-                        <td>Alfreds Futterkiste</td>
-                        <td>Maria Anders</td>
-                        <td>Germany</td>
-                    </tr>
-                    <tr>
-                        <td>Centro comercial Moctezuma</td>
-                        <td>Francisco Chang</td>
-                        <td>Mexico</td>
-                    </tr>
-                    <tr>
-                        <td>Ernst Handel</td>
-                        <td>Roland Mendel</td>
-                        <td>Austria</td>
-                    </tr>
-                    <tr>
-                        <td>Island Trading</td>
-                        <td>Helen Bennett</td>
-                        <td>UK</td>
-                    </tr>
-                    <tr>
-                        <td>Laughing Bacchus Winecellars</td>
-                        <td>Yoshi Tannamuri</td>
-                        <td>Canada</td>
-                    </tr>
-                    <tr>
-                        <td>Magazzini Alimentari Riuniti</td>
-                        <td>Giovanni Rovelli</td>
-                        <td>Italy</td>
-                    </tr>
-                </table>
+                <text>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquid dolorum iusto modi officia quam temporibus voluptate! Aspernatur eveniet laborum maiores quibusdam vero! Ab adipisci at commodi consequuntur, deleniti dolorum earum eos eum eveniet illo itaque, magnam magni maiores nesciunt odit pariatur, quam quasi recusandae rem suscipit. Architecto iure minima non quo recusandae reprehenderit! Architecto culpa et in rem voluptatem?
+                </text>
 
             </div>
 

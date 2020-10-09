@@ -7,12 +7,12 @@ function Header() {
             <nav id="navbar">
                 <h1 className="logi">
             <span className="text-primary">
-               Translator
+                <a href='/'>مترجم</a>
             </span>
                 </h1>
                 <ul>
-                    <li><a href='aboutUs'>About Us</a></li>
-                    <li><a href='contactUs'>Contact Us</a></li>
+                    <li><a href='aboutUs'>معلومات عنا</a></li>
+                    <li><a href='contactUs'>اتصل بنا</a></li>
 
                 </ul>
             </nav>

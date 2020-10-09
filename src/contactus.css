@@ -37,3 +37,14 @@
     border: none;
     border-radius: 5px;
 }
+
+
+@media only screen and (max-width: 768px) {
+
+    #contact{
+        padding: 0px;
+    }
+    .btn{
+        margin-left: 100px;
+    }
+}

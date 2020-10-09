@@ -8,8 +8,8 @@ function AboutUs() {
         <div className="about">
             <Header/>
             <div className="about-section">
-                <h1>About Us Page</h1>
-                <p>Some text about who we are and what we do.</p>
+                <h1>من نحن الصفحة</h1>
+                <p>بعض النصوص حول من نحن وماذا نفعل.</p>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt, minus?</p>
             </div>
 

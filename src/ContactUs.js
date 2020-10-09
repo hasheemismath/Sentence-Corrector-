@@ -11,26 +11,26 @@ function Contact() {
 
             <section id="contact">
                 <div className="contact-form bg-primary p-2">
-                    <h2 className="m-heading">Contact Us</h2>
-                    <p>Please use the form below to contact us</p>
+                    <h2 className="m-heading">اتصل بنا</h2>
+                    <p>من فضلك استخدم الفورمه فى الاسفل للإتصال بنا</p>
                     <form>
                         <div className="form-group">
-                            <label htmlFor="name">Name</label>
-                            <input type="text" name="name" id="name" placeholder="Enter Name"/>
+                            <label htmlFor="name">اسم</label>
+                            <input type="text" name="name" id="name" placeholder="أدخل الاسم"/>
                         </div>
                         <div className="form-group">
-                            <label htmlFor="email">Email</label>
-                            <input type="email" name="email" id="email" placeholder="Enter Email"/>
+                            <label htmlFor="email">البريد الإلكتروني</label>
+                            <input type="email" name="email" id="email" placeholder="أدخل البريد الإلكتروني"/>
                         </div>
                         <div className="form-group">
-                            <label htmlFor="phone">Phone Number</label>
-                            <input type="text" name="phone" id="phone" placeholder="Enter Phone Number"/>
+                            <label htmlFor="phone">رقم الهاتف</label>
+                            <input type="text" name="phone" id="phone" placeholder="أدخل رقم الهاتف"/>
                         </div>
                         <div className="form-group">
-                            <label htmlFor="message">Message</label>
-                            <textarea name="message" id="message" placeholder="Enter Message"></textarea>
+                            <label htmlFor="message">رسالة</label>
+                            <textarea name="message" id="message" placeholder="أدخل رسالة"></textarea>
                         </div>
-                        <input type="submit" value="Send" className="btn"/>
+                        <input type="submit" value="إرسال" className="btn"/>
                     </form>
                 </div>
 

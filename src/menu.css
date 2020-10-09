@@ -101,3 +101,102 @@ tr:nth-child(even) {
     margin: 10px;
 
 }
+
+.active, .btnn:hover {
+    background-color: #666;
+    color: white;
+}
+
+.btnn {
+    background-color: #e5ece5; /* Green */
+    border: 1px solid #494f49;
+    color: #1a1818;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.copyTo{
+    border: none;
+    width: 100%;
+    color: white;
+    height: 35px;
+    cursor: pointer;
+    background-color:#008CBA ;
+}
+
+.recorrect{
+    text-align: center;
+    background-color: rgba(0,0,0,0.1);
+}
+
+
+.btnnAct{
+    background-color: #666; /* Green */
+    border: 1px solid #494f49;
+    color: #1a1818;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.pagination{
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border: 1px solid #ddd;
+}
+
+
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    .content{
+        padding: 220px 0 0 0;
+
+    }
+
+    .content h1{
+        padding: 0 100px 0 5px ;
+    }
+
+    .boxes{
+        display: flex;
+        flex-direction: column;
+
+    }
+
+   .translaterText{
+
+        padding-right: 50px;
+
+        padding-left: 0px;
+    }
+
+    .button .button2{
+
+    }
+
+    .more-2 h1{
+        padding: 0px;
+    }
+
+    .more h1{
+        padding: 0px;
+    }
+
+
+
+
+
+
+
+}
